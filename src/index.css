@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #00ccff;
+  --color-primary-dark: #0088cc;
+  --font-sans: "Be Vietnam Pro", sans-serif;
+
+  --animate-float: float 4.5s ease-in-out infinite;
+  --animate-spin-slow: spin 8s linear infinite;
+  --animate-spin-reverse: spin 12s linear infinite reverse;
+  --animate-node-pulse: node-pulse 2.8s ease-out infinite;
+  --animate-fade-slide: fade-slide 0.6s ease both;
+  --animate-pulse-glow: pulse-glow 3.5s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes node-pulse {
+    0% { transform: scale(1); opacity: 0.6; }
+    80%, 100% { transform: scale(1.7); opacity: 0; }
+  }
+  @keyframes fade-slide {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.35; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.08); }
+  }
+}
+
+* {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  font-family: var(--font-sans);
+}
+
+/* ---- Reusable bespoke utilities Tailwind can't express as plain classes ---- */
+
+@utility scrollbar-hide {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility icon-badge {
+  background: color-mix(in srgb, var(--icon-accent, var(--color-primary)) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--icon-accent, var(--color-primary)) 30%, transparent);
+  color: var(--icon-accent, var(--color-primary));
+}
+
+@utility icon-badge-active {
+  background: var(--icon-accent, var(--color-primary)) !important;
+  color: #000 !important;
+  box-shadow: 0 0 20px color-mix(in srgb, var(--icon-accent, var(--color-primary)) 45%, transparent);
+}
+
+/* Workflow circle (Contact section) — conic-gradient rings + orbiting dot */
+.workflow-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(0, 204, 255, 0.55) 12%,
+    transparent 26%,
+    transparent 50%,
+    rgba(0, 204, 255, 0.35) 62%,
+    transparent 76%
+  );
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 2px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 2px));
+}
+
+.workflow-orbit-dot {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 12px 3px rgba(0, 204, 255, 0.8);
+  offset-path: circle(50% at 50% 50%);
+  animation: orbit 6s linear infinite;
+}
+
+@keyframes orbit {
+  from { offset-distance: 0%; }
+  to { offset-distance: 100%; }
+}
+
+.workflow-node-0 { top: 0%; left: 50%; }
+.workflow-node-1 { top: 50%; left: 100%; }
+.workflow-node-2 { top: 100%; left: 50%; }
+.workflow-node-3 { top: 50%; left: 0%; }
+
+/* tsparticles canvas host must fill the hero section behind its content */
+#particles-js {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Typed.js cursor (library injects blink keyframes itself, this just sizes it) */
+.typed-cursor {
+  color: var(--color-primary);
+}
