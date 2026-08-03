@@ -1,6 +1,11 @@
 import 'dotenv/config'
 
-const DEFAULT_CLIENT_URLS = ['http://localhost:5174', 'https://shivanijayshwal.in', 'https://www.shivanijayshwal.in']
+const DEFAULT_CLIENT_URLS = [
+  'http://localhost:5174',
+  'https://shivanijayshwal.in',
+  'https://www.shivanijayshwal.in',
+  'https://portfolio-e6d9c.web.app',
+]
 
 const parseOrigins = (value) =>
   (value || '')
