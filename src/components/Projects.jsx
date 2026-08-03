@@ -140,9 +140,9 @@ function Projects() {
   }, [])
 
   return (
-    <section className="bg-black py-12" id="projects">
+    <section className="bg-paper py-12" id="projects">
       <div>
-        <h1 className="text-center text-5xl font-semibold text-white" data-aos="fade-up">
+        <h1 className="text-center text-5xl font-semibold text-ink" data-aos="fade-up">
           Projects
         </h1>
       </div>
@@ -158,12 +158,12 @@ function Projects() {
             key={`${project.title}-${index}`}
             data-aos="fade-up"
             data-aos-delay={(index % 4) * 100}
-            className={`animate-float w-70 shrink-0 overflow-hidden rounded-2xl border border-white/8 bg-white/3 backdrop-blur-sm transition-transform duration-400 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:-translate-y-3 hover:scale-103 hover:border-primary hover:shadow-[0_20px_40px_rgba(0,204,255,0.15)] ${
+            className={`animate-float w-70 shrink-0 overflow-hidden rounded-2xl border border-ink/8 bg-ink/3 backdrop-blur-sm transition-transform duration-400 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:-translate-y-3 hover:scale-103 hover:border-primary hover:shadow-[0_20px_40px_rgba(0,204,255,0.15)] ${
               index % 2 === 0 ? 'mt-0' : 'mt-15'
             } ${dragging ? '[animation-play-state:paused]' : ''}`}
             style={{ animationDelay: index % 2 === 0 ? '0s' : '0.6s' }}
           >
-            <div className="h-40 w-full overflow-hidden bg-[#060606]">
+            <div className="h-40 w-full overflow-hidden bg-well">
               {project.image ? (
                 <img
                   src={project.image}
@@ -182,8 +182,8 @@ function Projects() {
               )}
             </div>
             <div className="flex flex-col gap-2.5 p-5">
-              <h3 className="text-lg font-bold text-white">{project.title}</h3>
-              <p className="text-sm leading-relaxed text-white/55">{project.description}</p>
+              <h3 className="text-lg font-bold text-ink">{project.title}</h3>
+              <p className="text-sm leading-relaxed text-ink/55">{project.description}</p>
               <div className="flex flex-wrap gap-1.5">
                 {project.stack.map((tech) => (
                   <span
@@ -198,7 +198,7 @@ function Projects() {
                 href={project.github}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-1 inline-flex items-center gap-2 text-sm font-semibold text-white no-underline transition-colors hover:text-primary"
+                className="mt-1 inline-flex items-center gap-2 text-sm font-semibold text-ink no-underline transition-colors hover:text-primary"
               >
                 <i className="fa-brands fa-github"></i> View Code
               </a>

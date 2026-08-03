@@ -61,12 +61,12 @@ function Testimonials() {
   const current = TESTIMONIALS[active]
 
   return (
-    <section className="relative flex flex-col items-center overflow-hidden bg-black py-12" id="testimonials">
+    <section className="relative flex flex-col items-center overflow-hidden bg-paper py-12" id="testimonials">
       <div className="animate-pulse-glow pointer-events-none absolute bottom-0 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-primary/8 blur-3xl"></div>
 
       <div className="relative">
         <h1
-          className="mx-auto max-w-2xl text-center text-4xl leading-tight font-bold text-white max-[800px]:text-2xl"
+          className="mx-auto max-w-2xl text-center text-4xl leading-tight font-bold text-ink max-[800px]:text-2xl"
           data-aos="fade-up"
         >
           Don't Just Take My Word For It
@@ -74,7 +74,7 @@ function Testimonials() {
       </div>
 
       <div
-        className="relative mx-auto mt-12 flex w-[90%] max-w-6xl flex-col items-center text-white"
+        className="relative mx-auto mt-12 flex w-[90%] max-w-6xl flex-col items-center text-ink"
         data-aos="zoom-in"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
@@ -87,14 +87,14 @@ function Testimonials() {
               pauseThenResume()
             }}
             aria-label="Previous testimonial"
-            className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/15 text-white transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary sm:flex"
+            className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-full border border-ink/15 text-ink transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary sm:flex"
           >
             <i className="fas fa-chevron-left"></i>
           </button>
 
           <div
             key={active}
-            className="animate-fade-slide relative overflow-hidden rounded-3xl border border-white/5 bg-white/2 p-10 text-center backdrop-blur-sm"
+            className="animate-fade-slide relative overflow-hidden rounded-3xl border border-ink/5 bg-ink/2 p-10 text-center backdrop-blur-sm"
           >
             <i className="fas fa-quote-right pointer-events-none absolute top-4 right-6 text-7xl text-primary/5 select-none"></i>
             <img
@@ -102,14 +102,14 @@ function Testimonials() {
               alt=""
               className="mx-auto mb-5 h-25 w-25 rounded-full border-3 border-primary object-cover shadow-[0_0_20px_rgba(0,204,255,0.3)]"
             />
-            <h5 className="text-lg text-white">{current.name}</h5>
+            <h5 className="text-lg text-ink">{current.name}</h5>
             <h6 className="mb-2 text-sm text-primary">{current.role}</h6>
             <div className="mb-3 flex items-center justify-center gap-1 text-xs text-primary">
               {Array.from({ length: current.rating }).map((_, index) => (
                 <i key={index} className="fas fa-star"></i>
               ))}
             </div>
-            <p className="relative mx-0 my-5 text-lg leading-loose text-white/80 italic">
+            <p className="relative mx-0 my-5 text-lg leading-loose text-ink/80 italic">
               <i className="fas fa-quote-left mr-2.5 text-2xl text-primary/50"></i>
               {current.text}
             </p>
@@ -122,7 +122,7 @@ function Testimonials() {
               pauseThenResume()
             }}
             aria-label="Next testimonial"
-            className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/15 text-white transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary sm:flex"
+            className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-full border border-ink/15 text-ink transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary sm:flex"
           >
             <i className="fas fa-chevron-right"></i>
           </button>
@@ -136,7 +136,7 @@ function Testimonials() {
               pauseThenResume()
             }}
             aria-label="Previous testimonial"
-            className="text-white"
+            className="text-ink"
           >
             <i className="fas fa-chevron-left"></i>
           </button>
@@ -147,7 +147,7 @@ function Testimonials() {
               pauseThenResume()
             }}
             aria-label="Next testimonial"
-            className="text-white"
+            className="text-ink"
           >
             <i className="fas fa-chevron-right"></i>
           </button>

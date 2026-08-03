@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import ThemeToggle from './ThemeToggle.jsx'
 
 const NAV_ITEMS = [
   { path: '/', id: 'home', label: 'Home' },
@@ -42,12 +43,15 @@ function Navbar() {
   return (
     <>
       {/* Mobile bar */}
-      <div className="fixed top-0 z-50 hidden w-full items-center justify-between bg-black max-[800px]:flex">
-        <Link to="/" className="px-4 py-3 text-white no-underline">
-          {logo}
-        </Link>
+      <div className="fixed top-0 z-50 hidden w-full items-center justify-between bg-paper max-[800px]:flex">
+        <div className="flex items-center gap-3">
+          <Link to="/" className="px-4 py-3 text-ink no-underline">
+            {logo}
+          </Link>
+          <ThemeToggle />
+        </div>
         <div
-          className="absolute top-full left-0 w-full bg-black"
+          className="absolute top-full left-0 w-full bg-paper"
           style={{ display: menuOpen ? 'block' : 'none' }}
         >
           {NAV_ITEMS.map((item) => (
@@ -55,7 +59,7 @@ function Navbar() {
               key={item.path}
               to={item.path}
               onClick={() => setMenuOpen(false)}
-              className="block px-4 py-3 text-[#0087ca] no-underline hover:bg-gray-800 hover:text-primary"
+              className="block px-4 py-3 text-[#0087ca] no-underline hover:bg-ink/10 hover:text-primary"
             >
               {item.label}
             </Link>
@@ -63,7 +67,7 @@ function Navbar() {
           <Link
             to="/contact"
             onClick={() => setMenuOpen(false)}
-            className="block px-4 py-3 text-[#0087ca] no-underline hover:bg-gray-800 hover:text-primary"
+            className="block px-4 py-3 text-[#0087ca] no-underline hover:bg-ink/10 hover:text-primary"
           >
             Contact
           </Link>
@@ -71,7 +75,7 @@ function Navbar() {
         <button
           type="button"
           onClick={() => setMenuOpen((open) => !open)}
-          className="px-6 py-3 text-white"
+          className="px-6 py-3 text-ink"
           aria-label="Toggle menu"
         >
           <i className="fa fa-bars"></i>
@@ -79,18 +83,21 @@ function Navbar() {
       </div>
 
       {/* Desktop nav */}
-      <nav className="fixed top-0 z-50 hidden w-full justify-center bg-black py-2.5 min-[801px]:flex">
+      <nav className="fixed top-0 z-50 hidden w-full justify-center bg-paper py-2.5 min-[801px]:flex">
         <div className="flex w-[90%] max-w-6xl items-center justify-between">
-          <Link to="/" className="flex items-center text-white no-underline">
-            {logo}
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link to="/" className="flex items-center text-ink no-underline">
+              {logo}
+            </Link>
+            <ThemeToggle />
+          </div>
           <ul className="m-0 flex list-none p-0">
             {NAV_ITEMS.map((item) => (
               <li key={item.path} className="mx-4 inline-block">
                 <Link
                   to={item.path}
                   className={`no-underline transition-colors ${
-                    activeSection === item.id ? 'font-bold text-primary' : 'text-white'
+                    activeSection === item.id ? 'font-bold text-primary' : 'text-ink'
                   }`}
                 >
                   {item.label}
@@ -100,7 +107,7 @@ function Navbar() {
           </ul>
           <Link
             to="/contact"
-            className="inline-block rounded-full bg-primary px-6 py-2 text-sm font-bold tracking-wider text-white uppercase transition-all hover:-translate-y-1 hover:bg-primary-dark hover:text-black hover:shadow-[0_10px_25px_rgba(0,204,255,0.35)]"
+            className="inline-block rounded-full bg-primary px-6 py-2 text-sm font-bold tracking-wider text-ink uppercase transition-all hover:-translate-y-1 hover:bg-primary-dark hover:text-black hover:shadow-[0_10px_25px_rgba(0,204,255,0.35)]"
           >
             Contact
           </Link>

@@ -52,10 +52,10 @@ const SERVICES = [
 
 function Services() {
   return (
-    <section className="relative flex flex-col items-center overflow-hidden bg-black px-0 py-12" id="services">
+    <section className="relative flex flex-col items-center overflow-hidden bg-paper px-0 py-12" id="services">
       <div className="animate-pulse-glow pointer-events-none absolute top-1/3 right-[-10%] h-96 w-96 rounded-full bg-primary/8 blur-3xl"></div>
 
-      <h1 className="relative pb-4 text-5xl font-semibold text-white max-[800px]:text-3xl" data-aos="fade-up">
+      <h1 className="relative pb-4 text-5xl font-semibold text-ink max-[800px]:text-3xl" data-aos="fade-up">
         Services
       </h1>
       <div className="relative mt-12 grid w-[90%] max-w-6xl grid-cols-3 gap-7.5 max-[769px]:grid-cols-1 min-[769px]:max-[992px]:grid-cols-2">
@@ -69,7 +69,7 @@ function Services() {
               '--accent-soft': `${service.accent}26`,
               '--accent-glow': `${service.accent}40`,
             }}
-            className="group relative min-h-80 overflow-hidden rounded-2xl border border-white/10 bg-white/3 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2.5 hover:border-[var(--accent)] hover:bg-white/5 hover:shadow-[0_20px_45px_var(--accent-glow)]"
+            className="group relative min-h-80 overflow-hidden rounded-2xl border border-ink/10 bg-ink/3 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2.5 hover:border-[var(--accent)] hover:bg-ink/5 hover:shadow-[0_20px_45px_var(--accent-glow)]"
           >
             <div className="pointer-events-none absolute -top-10 -right-10 h-40 w-40 rounded-full bg-[var(--accent-soft)] opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"></div>
             <span className="absolute top-0 left-0 h-0.5 w-0 bg-gradient-to-r from-[var(--accent)] to-transparent transition-all duration-500 group-hover:w-full"></span>
@@ -84,10 +84,10 @@ function Services() {
                   <i className={service.icon}></i>
                 </span>
               </span>
-              <h5 className="text-2xl font-bold text-white transition-colors duration-300 group-hover:text-[var(--accent)]">
+              <h5 className="text-2xl font-bold text-ink transition-colors duration-300 group-hover:text-[var(--accent)]">
                 {service.title}
               </h5>
-              <p className="text-sm leading-relaxed text-white/70">{service.text}</p>
+              <p className="text-sm leading-relaxed text-ink/70">{service.text}</p>
               <div className="flex flex-wrap justify-center gap-2">
                 {service.stack.map((tech) => (
                   <span
