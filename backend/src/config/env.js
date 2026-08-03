@@ -1,8 +1,18 @@
 import 'dotenv/config'
 
+const DEFAULT_CLIENT_URLS = ['http://localhost:5174', 'https://shivanijayshwal.in', 'https://www.shivanijayshwal.in']
+
+const parseOrigins = (value) =>
+  (value || '')
+    .split(',')
+    .map((origin) => origin.trim().replace(/\/+$/, ''))
+    .filter(Boolean)
+
+const configuredOrigins = parseOrigins(process.env.CLIENT_URL)
+
 export const env = {
   port: process.env.PORT || 5000,
-  clientUrl: process.env.CLIENT_URL || 'http://localhost:5174',
+  clientUrls: Array.from(new Set([...configuredOrigins, ...DEFAULT_CLIENT_URLS])),
   smtp: {
     host: process.env.SMTP_HOST,
     port: Number(process.env.SMTP_PORT) || 587,

@@ -6,7 +6,17 @@ import { errorHandler, notFoundHandler } from './middleware/errorHandler.js'
 
 const app = express()
 
-app.use(cors({ origin: env.clientUrl }))
+app.use(
+  cors({
+    origin(origin, callback) {
+      if (!origin || env.clientUrls.includes(origin.replace(/\/+$/, ''))) {
+        callback(null, true)
+      } else {
+        callback(new Error(`Not allowed by CORS: ${origin}`))
+      }
+    },
+  })
+)
 app.use(express.json())
 
 app.get('/api/health', (req, res) => {
