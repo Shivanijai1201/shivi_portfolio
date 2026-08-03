@@ -66,7 +66,7 @@ export function contactEmailTemplate({ name, email, subject, message }) {
             </tr>
             <tr>
               <td style="background-color:#000000;padding:18px 36px;text-align:center;border-top:1px solid rgba(255,255,255,0.06);">
-                <span style="color:rgba(255,255,255,0.35);font-size:12px;">Sent automatically from shivanijayshwal.dev</span>
+                <span style="color:rgba(255,255,255,0.35);font-size:12px;">Sent automatically from shivanijayshwal.in</span>
               </td>
             </tr>
           </table>
